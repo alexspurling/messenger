@@ -31,10 +31,11 @@ def process_dir(directory):
             print("Transforming", file, start_date_time, filter)
 
             # subprocess.run(["C:\\Users\\alexs\\Downloads\\transform-1.13.2-bin\\transform-1.13.2\\bin\\transform.bat", xml_file, "-f", "png", "-o", "images"], check=True)
-            subprocess.run(["C:\\Users\\alexs\\miniconda3\\Library\\bin\\gdal_translate.exe", "-of", "GTiff", "-ot", "UInt16", "-scale", "0", "4095", "0", "65535", xml_file, png_file], check=True)
+            # subprocess.run(["C:\\Users\\alexs\\miniconda3\\Library\\bin\\gdal_translate.exe", "-of", "GTiff", "-ot", "UInt16", "-scale", "0", "4095", "0", "65535", xml_file, png_file], check=True)
+            subprocess.run(["gdal_translate", "-of", "GTiff", "-ot", "UInt16", "-scale", "0", "4095", "0", "65535", xml_file, png_file], check=True)
 
 # EW0031520568C
 
 # process_dir("MSGRMDS_1001/DATA/2005_212")
-process_dir("MSGRMDS_1001/DATA/2005_214")
+# process_dir("MSGRMDS_1001/DATA/2005_214")
 process_dir("MSGRMDS_1001/DATA/2005_215")
